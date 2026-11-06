@@ -1,0 +1,27 @@
+--- a/adapter/outbound/mieru.go
++++ b/adapter/outbound/mieru.go
+@@ -40,6 +40,8 @@
+ 	Multiplexing   string `proxy:"multiplexing,omitempty"`
+ 	HandshakeMode  string `proxy:"handshake-mode,omitempty"`
+ 	TrafficPattern string `proxy:"traffic-pattern,omitempty"`
++	// ResolveLocal sends the server an IP instead of a domain, for servers whose own DNS is broken.
++	ResolveLocal bool `proxy:"resolve-local,omitempty"`
+ }
+ 
+ type mieruPacketDialer struct {
+@@ -76,6 +78,15 @@
+ 	if err := m.ensureClientIsRunning(); err != nil {
+ 		return nil, err
+ 	}
++	if m.option.ResolveLocal && metadata.Host != "" {
++		ip, err := resolver.ResolveIP(ctx, metadata.Host)
++		if err != nil {
++			return nil, fmt.Errorf("can't resolve %s: %w", metadata.Host, err)
++		}
++		metadata = metadata.Clone()
++		metadata.Host = ""
++		metadata.DstIP = ip
++	}
+ 	addr := metadataToMieruNetAddrSpec(metadata)
+ 	c, err := m.client.DialContext(ctx, addr)
+ 	if err != nil {

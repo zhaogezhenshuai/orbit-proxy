@@ -1,0 +1,11 @@
+.build/
+.toolchain/
+dist/
+.DS_Store
+.swiftpm/
+xcuserdata/
+*.xcodeproj/
+# Personal data never belongs here: subscriptions, exported node lists, app data
+*.raw
+settings.json
+nodes.json

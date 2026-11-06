@@ -1,0 +1,15 @@
+--- a/hub/route/server.go
++++ b/hub/route/server.go
+@@ -135,10 +135,8 @@
+ 		r.Mount("/cache", cacheRouter())
+ 		r.Mount("/dns", dnsRouter())
+ 		r.Mount("/storage", storageRouter())
+-		if !embedMode { // disallow restart in embed mode
+-			r.Mount("/restart", restartRouter())
+-		}
+-		r.Mount("/upgrade", upgradeRouter())
++		// Orbit: no /restart or /upgrade. The TUN core runs as root, and neither re-executing it nor
++		// replacing its binary from the network should be one API call away.
+ 		addExternalRouters(r)
+ 
+ 	})
