@@ -12,7 +12,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Orbit</string>
 	<key>CFBundleIdentifier</key>
-	<string>local.orbit.proxy</string>
+	<string>io.github.zhaogezhenshuai.orbit</string>
 	<key>CFBundleName</key>
 	<string>Orbit</string>
 	<key>CFBundleDisplayName</key>

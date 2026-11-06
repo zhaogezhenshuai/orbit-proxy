@@ -56,7 +56,10 @@ if running; then
   WAS_RUNNING=1
   for _ in 1 2 3; do  # a dist/ copy and an /Applications copy may both be running
     running || break
-    osascript -e 'quit app id "local.orbit.proxy"' >/dev/null 2>&1 || true
+    # local.orbit.proxy: the bundle id before 1.0, still on Macs that installed an early build.
+    for id in io.github.zhaogezhenshuai.orbit local.orbit.proxy; do
+      osascript -e "quit app id \"$id\"" >/dev/null 2>&1 || true
+    done
     for _ in $(seq 20); do running || break; sleep 0.5; done
   done
   if running; then echo "Orbit didn't quit; not installing."; exit 1; fi
