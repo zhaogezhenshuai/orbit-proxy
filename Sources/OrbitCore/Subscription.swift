@@ -36,7 +36,7 @@ public enum SubscriptionError: Error, CustomStringConvertible {
         switch self {
         case .http(let c): return "subscription HTTP \(c)"
         case .noSource: return "no node source"
-        case .invalidURL: return "invalid subscription URL"
+        case .invalidURL: return "invalid subscription URL (only https:// is supported)"
         case .noNodes(let f): return "no usable nodes (format: \(f.rawValue))"
         }
     }

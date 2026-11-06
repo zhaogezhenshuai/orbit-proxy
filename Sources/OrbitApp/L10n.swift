@@ -56,7 +56,7 @@ func describe(_ error: Error) -> String {
     case CoreError.authorizationFailed(let m): return L("管理员授权失败：", "Administrator authorization failed: ") + m
     case SubscriptionError.http(let code): return L("订阅返回 HTTP \(code)", "Subscription returned HTTP \(code)")
     case SubscriptionError.noSource: return L("还没有节点来源", "No node source yet")
-    case SubscriptionError.invalidURL: return L("订阅地址无效，应以 http:// 或 https:// 开头", "Invalid subscription URL; it should start with http:// or https://")
+    case SubscriptionError.invalidURL: return L("订阅地址无效，只支持以 https:// 开头的地址", "Invalid subscription URL; only https:// URLs are supported")
     case SubscriptionError.noNodes(let format):
         switch format {
         case .html: return L("返回的是网页而不是节点列表，订阅地址可能有误或已失效", "Got a web page instead of a node list; the URL may be wrong or expired")
