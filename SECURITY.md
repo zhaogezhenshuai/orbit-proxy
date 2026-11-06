@@ -21,10 +21,13 @@
 - 局域网共享的认证
 - 解析不可信的订阅内容：崩溃、注入配置、读写本地文件
 
-已知且写在 README「安全须知」里的局限不算漏洞，例如本机已有恶意程序时可以替换整个 app。
+已知且写在 [README](README.zh-CN.md#安全须知)「安全须知」里的局限不算漏洞，例如本机已有恶意程序时可以替换整个 app。
 
 ## Reporting a vulnerability
 
 Please don't open a public issue. Use **Security → Report a vulnerability** on this repository
 (GitHub private vulnerability reporting) and include the affected version, steps to reproduce and
 the impact you see. You should hear back within 7 days.
+
+Known limitations listed under [Security notes](README.md#security-notes) in the README, such as
+malware already on the Mac replacing the whole app, are out of scope.
