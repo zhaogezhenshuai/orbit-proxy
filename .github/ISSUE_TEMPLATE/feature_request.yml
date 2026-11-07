@@ -1,0 +1,22 @@
+name: Feature request / 功能建议
+description: Suggest an improvement. / 提出改进建议。
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Orbit doesn't provide nodes or subscriptions, so requests for them will be closed. / Orbit 不提供节点或订阅，相关请求会被关闭。
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve? / 想解决什么问题
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Suggested solution / 建议的做法
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or workarounds / 其他方案或现有的变通办法

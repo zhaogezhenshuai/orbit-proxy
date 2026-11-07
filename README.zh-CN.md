@@ -6,6 +6,8 @@ macOS 菜单栏网络代理客户端，用来连接你有权使用的代理服�
 
 Orbit 本身不提供任何节点、订阅或代理服务。
 
+<p align="center"><img src="docs/example.png" width="380" alt="Orbit 菜单栏面板：模式切换、订阅用量、地区筛选和节点延迟"></p>
+
 ## 协议与订阅兼容性
 
 - 支持 mieru、VLESS（含 Reality）、VMess、Trojan、Shadowsocks、Hysteria2、TUIC、AnyTLS、SOCKS5、HTTP 等协议。

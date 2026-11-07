@@ -1,0 +1,90 @@
+name: Bug report / 问题报告
+description: Something doesn't work as expected. / 功能不正常或出错。
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before posting, remove anything private.** Issues are public. Don't paste subscription URLs, share links (`vless://`, `mierus://`…), server addresses, passwords, UUIDs or unedited logs and config files. Replace them with `xxx`.
+
+        **提交前请删掉隐私信息。** Issue 是公开的。不要贴订阅地址、节点分享链接（`vless://`、`mierus://` 等）、服务器地址、密码、UUID，或未处理过的日志和配置文件，请用 `xxx` 代替。
+
+        Security issues: use [private reporting](https://github.com/zhaogezhenshuai/orbit-proxy/security/advisories/new) instead. / 安全问题请走[私密报告](https://github.com/zhaogezhenshuai/orbit-proxy/security/advisories/new)。
+  - type: input
+    id: version
+    attributes:
+      label: Orbit version / Orbit 版本
+      description: Shown under Settings → General → About. / 在「设置 → 通用 → 关于」里查看。
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version / macOS 版本
+      placeholder: "macOS 15.5"
+    validations:
+      required: true
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Mac / 机型
+      options:
+        - Apple Silicon (arm64)
+        - Intel (x86_64)
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Connection mode / 连接方式
+      options:
+        - System proxy / 系统代理
+        - Enhanced Mode (TUN) / 增强模式 (TUN)
+        - Not connected / 未连接
+    validations:
+      required: true
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Node protocol (if related) / 相关的节点协议
+      multiple: true
+      options:
+        - mieru
+        - VLESS
+        - VMess
+        - Trojan
+        - Shadowsocks
+        - Hysteria2
+        - TUIC
+        - AnyTLS
+        - Other / 其他
+        - Not related / 无关
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened / 问题描述
+      description: What you did, what you expected and what happened instead. / 做了什么、期望什么、实际发生了什么。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (redacted) / 日志（已脱敏）
+      description: "Relevant lines from ~/Library/Application Support/Orbit/core.log, with addresses and secrets replaced. / core.log 里的相关几行，地址和密钥请替换掉。"
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check / 隐私确认
+      options:
+        - label: I removed subscription URLs, share links, server addresses and passwords. / 我已删除订阅地址、分享链接、服务器地址和密码。
+          required: true

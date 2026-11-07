@@ -6,6 +6,8 @@ A macOS menu bar proxy client for connecting to proxy servers you are authorized
 
 Orbit itself does not provide any nodes, subscriptions or proxy service.
 
+<p align="center"><img src="docs/example.png" width="380" alt="Orbit menu bar panel showing modes, subscription usage, region filters and node latency"></p>
+
 ## Protocols and subscription compatibility
 
 - Supports mieru, VLESS (including Reality), VMess, Trojan, Shadowsocks, Hysteria2, TUIC, AnyTLS, SOCKS5, HTTP and more.
